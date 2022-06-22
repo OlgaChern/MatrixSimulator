@@ -255,15 +255,15 @@ def parse_parameters():
     parser = argparse.ArgumentParser(description='Generate 0-1 matrix')
     
     # parameters------------------------------------------------------
-    parser.add_argument("-o",help="output file prefix",default="output_file",metavar="<file_name>")
+    parser.add_argument("-o",help="output files prefix",default="output_file",metavar="<file_name>")
     
     parser.add_argument("-n",help="number of rows",type=int,default=20,metavar="<num>")
     parser.add_argument("-k",help="number of cols",type=int,default=10,metavar="<num>")
     parser.add_argument("-m",help="%% of zeros to be allocated",type=float,default=30,metavar="<num>")
 
-    parser.add_argument("-u",help="%% of rows with sum of elements = 1",type=float,default=0,metavar="<num>")
+    parser.add_argument("-u",help="%% of rows with row sum = 1",type=float,default=0,metavar="<num>")
     
-    parser.add_argument("-up",nargs=3,help="vector of length 3, defines probabilities for 3 column categories to contain 1's in rows, which sum up to 1",type=float,default=[0.33,0.33,0.33],metavar="<num>")
+    parser.add_argument("-up",nargs=3,help="vector of length 3, defines probabilities for 3 column categories to contain 1's in rows with row sum = 1",type=float,default=[0.33,0.33,0.33],metavar="<num>")
     
     parser.add_argument("-r0",help="minimum number of 0's in a row",type=int,default=1,metavar="<num>")
     parser.add_argument("-r1",help="minimum number of 1's in a row",type=int,default=2,metavar="<num>")
