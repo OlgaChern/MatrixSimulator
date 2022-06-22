@@ -74,14 +74,14 @@ Here, we will describe the matrix summary on the above example.
 * `row_sum_counts: [0 2 1 2 5 0]` - Entries correspond to the number of rows with `row sum = i-1`, where `i` is the position in the vector. The length of the vector is `k+1`. 
 
 
-number of rows with corresponding sum | 0 | 2 | 1 | 2 | 5 | 0
+`row_sum_counts`, the number of rows with corresponding sum | 0 | 2 | 1 | 2 | 5 | 0
 --- | --- | --- | --- | --- | --- | ---
 corresponding row sum, i-1 | 0 | 1 | 2 | 3 | 4 | 5
 
 
 * `col_sum_counts: [0 0 0 0 1 1 0 3 0 0 0]` - Entries correspond to the number of columns with `column sum = i-1`, where `i` is the position in the vector. The length of the vector is `n+1`. 
 
-number of columns with corresponding column sum | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 3 | 0 | 0 | 0
+`col_sum_counts`, the number of columns with corresponding column sum | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 3 | 0 | 0 | 0
 --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
 corresponding column sum, i-1 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
 
