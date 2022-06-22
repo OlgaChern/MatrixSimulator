@@ -503,6 +503,7 @@ def generate_0_1_matrix(n=10,k=10,m=50,u=0, up=np.array([0.33,0.33,0.33]), r0=1,
         with open(infile) as f:
             for line in f:
                 #print(line)
+                line=line.replace("\n","")
                 info_matrices.append(line)
             
         #print(info_matrices)
