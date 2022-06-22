@@ -1,4 +1,4 @@
-##Parameters
+## Parameters
 
 The simulator accepts the following parameters:
 
@@ -35,8 +35,7 @@ The simulator accepts the following parameters:
 * `-cf <num> <num> <num>` vector of length 3, defines sizes (in %) for 3 col categories
 * `-cp <num> <num> <num>` vector of length 3, defines probabilities for 3 col categories
 
-*Dealing with isomorphic matrices:*
-* `-i <file_name>`        input file should contain information about other available matrices and will be used for a basic isomorphism check, if you have more than one matrix. If
-                        matrix generation was successful, this file will be updated with an information about new matrix.
+*Dealing with identical matrices:*
+* `-i <file_name>`        input file should contain information about other available matrices and will be used for a basic identity check, if you have more than one matrix. If matrix generation was successful, this file will be updated with an information about new matrix.
 * `-t <num>` number of trials to perform, in case matrix is equivalent to some existing one (info passed via -i) or if some warnings were occured
 
