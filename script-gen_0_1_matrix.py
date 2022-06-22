@@ -310,6 +310,9 @@ def parse_parameters():
     file.write("-"*100+'\n')
     file.write("Matrix generation"+'\n')
     file.write("-"*100+'\n')
+    file.write("Command line: ")
+    file.write(str(sys.argv).replace("'","").replace(",","").replace("[","").replace("]","")+'\n')
+    file.write("-"*100+'\n')
     file.write("Printing parameter values:"+'\n')
     file.write("-"*100+'\n')
     for i in d.keys():
