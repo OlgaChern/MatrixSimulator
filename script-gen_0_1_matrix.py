@@ -255,7 +255,6 @@ def parse_parameters():
     parser = argparse.ArgumentParser(description='Generate 0-1 matrix')
     
     # parameters------------------------------------------------------
-    parser.add_argument("-i",help="input file should contain information about other available matrices and will be used for a basic isomorphism check, if you have more than one matrix. If matrix generation was successful, this file will be updated with an information about new matrix.",metavar="<file_name>")
     parser.add_argument("-o",help="output file prefix",default="output_file",metavar="<file_name>")
     
     parser.add_argument("-n",help="number of rows",type=int,default=20,metavar="<num>")
@@ -276,7 +275,8 @@ def parse_parameters():
     
     parser.add_argument("-cf",nargs=3,help="vector of length 3, defines sizes (in %%) for 3 col categories",default=[60,10,30],type=float,metavar="<num>")
     parser.add_argument("-cp",nargs=3,help="vector of length 3, defines probabilities for 3 col categories",default=[0.1,0.6,0.3],type=float,metavar="<num>")
-    
+   
+    parser.add_argument("-i",help="input file should contain information about other available matrices and will be used for a basic isomorphism check, if you have more than one matrix. If matrix generation was successful, this file will be updated with an information about new matrix.",metavar="<file_name>")
     parser.add_argument("-t",help="number of trials to perform, in case matrix is equivalent to some existing one (info passed via -i) or if some warnings were occured",type=int,default=5,metavar="<num>")
     
     # parsing arguments----------------------------------------------------
@@ -532,7 +532,7 @@ def generate_0_1_matrix(n=10,k=10,m=50,u=0, up=np.array([0.33,0.33,0.33]), r0=1,
     #print("Col probs:",col_probs)
     #------------------------------------------------------------
     print("="*100)
-    print("Generating 0-1 matrix for parameters | taxa","%s" % n,"| partitions",k,"| % of missing data",str(m)+"%")
+    print("Generating 0-1 matrix for parameters | rows","%s" % n,"| columns",k,"| % of missing data (zeros)",str(m)+"%")
     print("="*100)
     #------------------------------------------------------------
     trials=0
