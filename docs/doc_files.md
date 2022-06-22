@@ -100,11 +100,11 @@ This file should be either empty or with matrix summaries of previously generate
 *Example:*
 
 ```
-10 5 20 40.0 [0 2 0 4 4 0][0 0 0 0 1 1 1 1 1 0 0][3 2 0]
-10 5 20 40.0 [0 2 0 4 4 0][0 0 0 0 1 1 1 1 1 0 0][3 2 0]
-10 5 20 40.0 [0 2 1 2 5 0][0 0 0 0 1 0 3 0 1 0 0][3 2 0]
+10 5 20 40.0 [0 2 1 2 5 0][0 0 0 0 2 1 0 0 1 1 0][3 2 0]
+10 5 20 40.0 [0 2 1 2 5 0][0 0 0 0 2 0 1 1 0 1 0][3 2 0]
+10 5 20 40.0 [0 2 1 2 5 0][0 0 0 0 1 0 2 2 0 0 0][3 2 0]
 ```
 
-Note: There are matrix summaries of three matrices, which were generated using the same input parameters. Since the spread of zeros in the matrices is different (reflected in the row/column sums counts), these matrices are different.
+Note: There are matrix summaries of three matrices, which were generated using the same input parameters. Since the spread of zeros in the matrices is different (here, reflected in different column sums counts), these matrices are different.
 
 
