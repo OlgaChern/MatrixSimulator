@@ -9,7 +9,7 @@ python3 script-gen_0_1_matrix.py
 This will generate a 0-1 matrix with 20 rows, 10 columns and 30% of missing data (i.e. 0's in a matrix). All input parameters are described in log file. The matrix is written in default output file `output_file.txt`
 
 To print help run
-````bash
+```bash
 python3 script-gen_0_1_matrix.py -h
 ```
 
