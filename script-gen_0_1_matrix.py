@@ -250,7 +250,21 @@ def sample_indices(col_probs,row_probs,m):
 #============================================================
 def parse_parameters():
     """Parsing arguments passed to the script"""
-    
+    #########################################################
+    print("="*100)
+    print("")
+    print("Matrix Simulator")
+    print("")
+    print("="*100)
+    print("Generates 0-1 matrices, while controlling the spread of zeros in the matrix via various options.")
+    print("-"*100)
+    print("Author:   Olga Chernomor")
+    print("Citation: Chernomor et. al. (in prep)")
+    print("          Identifying equally scoring trees in phylogenomics with incomplete data using Gentrius")
+    print("="*100)
+    print("")
+    #########################################################
+
     #parser = argparse.ArgumentParser(description='Generate 0-1 matrix',exit_on_error=True)
     parser = argparse.ArgumentParser(description='Generate 0-1 matrix')
     
@@ -293,13 +307,15 @@ def parse_parameters():
     #print("="*50)
     d=vars(args)
     file=open(args.o+".log","w")
-    file.write("="*50+'\n')
-    file.write("Printing input parameters:"+'\n')
-    file.write("="*50+'\n')
+    file.write("-"*100+'\n')
+    file.write("Matrix generation"+'\n')
+    file.write("-"*100+'\n')
+    file.write("Printing parameter values:"+'\n')
+    file.write("-"*100+'\n')
     for i in d.keys():
         #print(i+":",d[i])
         file.write(str(i)+":"+str(d[i])+'\n')
-    file.write("="*50+'\n')
+    file.write("-"*100+'\n')
     file.close()
     #----------------------------------------------------------------------
     generate_0_1_matrix(d["n"],d["k"],d["m"],d["u"],d["up"],d["r0"],d["r1"],d["c0"],d["c1"],d["rf"],d["rp"],d["cf"],d["cp"],d["t"],outfile=d["o"],infile=d["i"])
@@ -406,7 +422,8 @@ def compute_info_matrix(m):
     
     
     info_matrix=str(n)+" "+str(k)+" "+str(int(sum_0))+" "+str(round(sum_0/(n*k)*100,2))+" "+"".join(np.array2string(row_freq, max_line_width=len(row_freq)*(len(str(max(row_freq)))+1)+2) + np.array2string(col_freq, max_line_width=len(col_freq)*(len(str(max(col_freq)))+1)+2)+np.array2string(col_u_freq, max_line_width=len(col_u_freq)*(len(str(max(col_u_freq)))+1)+2))
-    
+    info_matrix=info_matrix.replace("  "," ")
+    info_matrix=info_matrix.replace("[ ","[")
     #print(info_matrix)
     
     return info_matrix
@@ -435,12 +452,12 @@ def freq_counts(m):
         
     u=row_freq[1]
     col_u_freq=np.zeros(u+1).astype('int32')
-    c=0
+    #c=0
     for j in range(k):
         col_u_freq[int(col_u_info[j])]+=1
-        c+=col_u_info[j]
-        if c==u:
-            break
+        #c+=col_u_info[j]
+        #if c==u:
+         #   break
     
     #print("row_freq:",row_freq)
     #print("col_freq:",col_freq)
@@ -448,7 +465,7 @@ def freq_counts(m):
     return row_freq, col_freq, col_u_freq
     
 def print_m_to_file(m,outfile):
-    file=open(outfile+"_input","w")
+    file=open(outfile+".txt","w")
     file.write(str(m.shape[0])+" "+str(m.shape[1])+'\n')
     for i in range(m.shape[0]):
         file.write("sp"+str(i+1)+" "+np.array2string(m[i,:], max_line_width=m.shape[1]*2+2).replace("[","").replace("]","")+'\n')
@@ -531,9 +548,11 @@ def generate_0_1_matrix(n=10,k=10,m=50,u=0, up=np.array([0.33,0.33,0.33]), r0=1,
     #print("Row probs:",row_probs)
     #print("Col probs:",col_probs)
     #------------------------------------------------------------
-    print("="*100)
-    print("Generating 0-1 matrix for parameters | rows","%s" % n,"| columns",k,"| % of missing data (zeros)",str(m)+"%")
-    print("="*100)
+    #print("="*100)
+    print("")
+    print("Generating 0-1 matrix | rows","%s" % n,"| columns",k,"| % of missing data (zeros)",str(m)+"%")
+    print("")
+    #print("="*100)
     #------------------------------------------------------------
     trials=0
     try_gen_again=True
@@ -666,13 +685,15 @@ def generate_0_1_matrix(n=10,k=10,m=50,u=0, up=np.array([0.33,0.33,0.33]), r0=1,
             file.close()
 
         file=open(outfile+".log","a")
-        file.write("Matrix INFO:\n")
-        file.write("="*50+"\n")
-        file.write("n k #0 %0 row_freq col_freq col_row_sum_1_freq\n")
+        file.write("Matrix Summary:\n")
+        file.write("-"*100+"\n")
+        file.write("n k #0 %0 row_sum_freq col_sum_freq col_row_sum_1_freq\n")
         file.write(info_matrix+'\n')
+        file.write("-"*100+'\n')
         file.close()
             
         print_m_to_file(m,outfile)
+    print("-"*100)
         
 #=================================================================================
 #=================================================================================
