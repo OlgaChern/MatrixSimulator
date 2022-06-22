@@ -290,7 +290,7 @@ def parse_parameters():
     parser.add_argument("-cf",nargs=3,help="vector of length 3, defines sizes (in %%) for 3 col categories",default=[60,10,30],type=float,metavar="<num>")
     parser.add_argument("-cp",nargs=3,help="vector of length 3, defines probabilities for 3 col categories",default=[0.1,0.6,0.3],type=float,metavar="<num>")
    
-    parser.add_argument("-i",help="input file should contain information about other available matrices and will be used for a basic isomorphism check, if you have more than one matrix. If matrix generation was successful, this file will be updated with an information about new matrix.",metavar="<file_name>")
+    parser.add_argument("-i",help="input file should contain information about other available matrices and will be used for a basic identity check, if you have more than one matrix. If matrix generation was successful, this file will be updated with an information about new matrix.",metavar="<file_name>")
     parser.add_argument("-t",help="number of trials to perform, in case matrix is equivalent to some existing one (info passed via -i) or if some warnings were occured",type=int,default=5,metavar="<num>")
     
     # parsing arguments----------------------------------------------------
@@ -335,7 +335,7 @@ def parameter_sanity_check(n,k,m,u,up,r0,r1,c0,c1,rf,rp,cf,cp,t,outfile,infile):
                 sys.exit("INPUT_ERROR: infile: not allowed character in the input file name. File names should not contain the following characters: "+"'"+"' '".join(forbidden_ch)+"'")
 	# if files does not exist, you should use it to write info about current matrix..
         if not path.exists(infile):
-            print("WARNING: file ",infile," does not exists, i.e. no information is available for a basic isomorphism check. However, the file name will be used to output information about the matrix, generated in this run. This information can be further used for isomorphism check for other matrices.")
+            print("WARNING: file ",infile," does not exists, i.e. no information is available for a basic identity check. However, the file name will be used to output information about the matrix, generated in this run. This information can be further used for identity check for other matrices.")
         #    sys.exit("INPUT_ERROR: infile '"+infile+"' does not exist!")
     #----------------------------------------------------------------------
     for i in outfile:
@@ -403,7 +403,7 @@ def parameter_sanity_check(n,k,m,u,up,r0,r1,c0,c1,rf,rp,cf,cp,t,outfile,infile):
         cp=cp/sum(cp)
     #----------------------------------------------------------------------
     if t<0:
-        sys.exit("t corresponds to the number of trials to be performed to avoid isomorphic matrices (if an input file is provided) and must be >=0!")
+        sys.exit("t corresponds to the number of trials to be performed to avoid identical matrices (if an input file is provided) and must be >=0!")
 
 def compute_info_matrix(m):
     """
@@ -664,7 +664,7 @@ def generate_0_1_matrix(n=10,k=10,m=50,u=0, up=np.array([0.33,0.33,0.33]), r0=1,
             for i in range(len(info_matrices)):
                 if info_matrices[i].replace(" ","") == info_matrix.replace(" ",""):
                     iso_found=True
-                    print("INFO: generated matrix did not pass isomorphism check. Generate new sample matrix.")
+                    print("INFO: generated matrix did not pass identity check. Generate new sample matrix.")
                     break
         
         #------------------------------------------------------------
@@ -676,7 +676,7 @@ def generate_0_1_matrix(n=10,k=10,m=50,u=0, up=np.array([0.33,0.33,0.33]), r0=1,
     # FINISHED MATRIX GENERATION
     #------------------------------------------------------------
     if iso_found and trials==t:
-        print("WARNING: Within",trials," trials I could not generate a matrix, which passed basic isomorphism check, given info about already existing matrices (contained in file",infile,"). That is, there is another existing matrix, which might be identical with respect to row/column shuffles.")
+        print("WARNING: Within",trials," trials I could not generate a matrix, which passed basic identity check, given info about already existing matrices (contained in file",infile,"). That is, there is another existing matrix, which might be identical after row/column shuffles.")
     else:
         # - print out matrix info, maybe plot matrix, and print the matrix itself with appropriate format
         print("INFO: Matrix generation is completed!")
@@ -690,7 +690,7 @@ def generate_0_1_matrix(n=10,k=10,m=50,u=0, up=np.array([0.33,0.33,0.33]), r0=1,
         file=open(outfile+".log","a")
         file.write("Matrix Summary:\n")
         file.write("-"*100+"\n")
-        file.write("n k #0 %0 row_sum_freq col_sum_freq col_row_sum_1_freq\n")
+        file.write("n k #0 %0 row_sum_counts col_sum_counts col_counts_row_sum_1\n")
         file.write(info_matrix+'\n')
         file.write("-"*100+'\n')
         file.close()
