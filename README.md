@@ -72,7 +72,7 @@ Rows and columns, which are at the boundary of constraints (i.e. row sum = r1, c
 
 Parameters on minimal number of zeros and ones in rows and columns, as well as the number of rows with minimal information (i.e. row sum = 1), parameter u, constrain minimal and maximal % of zeros, m, that need to be allocated to satisfy these constraints. Thus, at the boundaries, it can happen that user-defined m is different from the % of zeros in the simulated matrix.
 
-*Sampling probabilities are ignored.*
+*Sampling probabilities are ignored.
 
 TODO 
 
