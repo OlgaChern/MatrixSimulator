@@ -55,11 +55,10 @@ t:5
 ----------------------------------------------------------------------------------------------------
 Matrix Summary:
 ----------------------------------------------------------------------------------------------------
-n k #0 %0 row_sum_freq col_sum_freq col_row_sum_1_freq
+n k #0 %0 row_sum_counts col_sum_counts col_counts_row_sum_1
 10 5 20 40.0 [0 2 1 2 5 0][0 0 0 0 1 1 0 3 0 0 0][3 2 0]
 ----------------------------------------------------------------------------------------------------
 ```
-
 
 **Matrix Summary**
 
@@ -72,19 +71,22 @@ Here, we will describe the matrix summary on the above example.
 * `%0 = 60%` - the % of zeros out of all `n x k` matrix entries
 
 *Rows and columns sum summaries:*
-* `row_sum_freq: [0 2 1 2 5 0]` - the length of the vector is k+1. Each entry corresponds to the number of rows with row sum = i-1, where i is the position in the vector.
+* `row_sum_counts: [0 2 1 2 5 0]` - Entries correspond to the number of rows with `row sum = i-1`, where `i` is the position in the vector. The length of the vector is `k+1`. 
 
-Position in the vector | Row sum | Number of rows with corresponding sum
---- | --- | ---
-**i** | **i-1** | **row counts**
-1 | 0 | 0
-2 | 1 | 2
-3 | 2 | 1
-4 | 3 | 2
-5 | 4 | 5
-6 | 5 | 0
 
-* `col_sum_freq: [0 0 0 0 1 1 0 3 0 0 0]`
+row_sum_counts | 0 | 2 | 1 | 2 | 5 | 0
+--- | --- | --- | --- | --- | --- | ---
+position in the vector, i | 1 | 2 | 3 | 4 | 5 | 6
+corresponding row sum, i-1 | 0 | 1 | 2 | 3 | 4 | 5
+
+
+* `col_sum_counts: [0 0 0 0 1 1 0 3 0 0 0]` - Entries correspond to the number of columns with `column sum = i-1`, where `i` is the position in the vector. The length of the vector is `n+1`. 
+
+col_sum_counts | 0 | 0 | 0 | 0 | 1 | 1 | 0 | 3 | 0 | 0 | 0
+--- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | ---
+position in the vector, i | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11
+corresponding column sum, i-1 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+
 
 *Columns involved in rows with minimal information (row sum = 1):*
-* `col_row_sum_1_freq: [3 2 0]`
+* `col_counts_row_sum_1: [3 2 0]` - Entries correspond to the number of columns, which contain 1's in `i-1` rows with row sum = 1. The length of the vector is `u+1`. Here, there 3 columns, which don't have 1's in the rows with row sum = 1 and 2 columns, which each have 1 in one row with row sum = 1 (in our example, third and fourth columns). 
