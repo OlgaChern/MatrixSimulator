@@ -37,7 +37,7 @@ sp10 0 0 1 0 0
 * `<output_file_prefix>.log` - contains information about values of parameters and summary of the matrix in terms of row/column sum frequencies. Such summaries are used to avoid generating isomorphic matrices (i.e. identical with respect to row and/or column shuffles) (see below).
 
 Example:
-```bash
+```
 ----------------------------------------------------------------------------------------------------
 Matrix generation
 ----------------------------------------------------------------------------------------------------
