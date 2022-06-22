@@ -3,7 +3,7 @@ A simulator to generate 0-1 matrices with various options to control the spread 
 
 It starts with a matrix of ones and then allocates the required number of zeros in the matrix according to the user-defined parameters. One can control the amount of zeros (their % out of all matrix entries) and the spread across the matrix using sampling row/column probabilities and % of rows with row sum equals to one (rows with minimal information) and also the distribution of such ones across columns. The constraints on rows and columns are imposed via minimal number of zeros and ones in each row/column, i.e. constraints on row and column sums.
 
-In the output the simulator provides also matrix summaries in terms of row and column sum frequencies, which can be used to discard isomorphic matrices.
+For the generated matrix the simulator provides also matrix summary in terms of row and column sum frequencies. These summaries can be used to discard matrices, which are identical after row and/or column shuffling.
 
 Read more about the steps of matrix simulation [>>>](./docs/doc_workflow.md)
 
@@ -29,7 +29,7 @@ The simulator outputs the following two files
 Detailed description of output files [>>>](./docs/doc_in_out.md)
 
 ## Input file
-The simulator accepts one optional input file. This file should contain matrix summaries of previously generated matrices (or it should be an empty file) and will be also updated by adding matrix summary of currently generated matrix. The matrix summaries can be used to avoid generating isomorphic matrices (i.e. matrices that are identical with respect to row and/or column shuffling). This is useful, if one wants to generate many different random matrices with the same input parameters. 
+The simulator accepts one optional input file. This file should contain matrix summaries of previously generated matrices (or it should be an empty file). This file will be also updated by adding matrix summary of currently generated matrix. The matrix summaries can be used to avoid generating  matrices, that are identical with respect to row and/or column shuffling. This is useful, if one wants to generate many **different** random matrices with the same input parameters. 
 
 Detailed description of input file [>>>](./docs/doc_in_out.md)
 
