@@ -26,12 +26,12 @@ The simulator outputs the following two files
 * `<output_file_prefix>.txt` - contains generated matrix
 * `<output_file_prefix>.log` - contains information about values of parameters and matrix summary
 
-Detailed description of output files [>>>](./docs/doc_out.md)
+Detailed description of output files [>>>](./docs/doc_files.md)
 
 ## Input file
 The simulator accepts one optional input file. This file should contain matrix summaries of previously generated matrices (or it should be an empty file). This file will be also updated by adding matrix summary of currently generated matrix. The matrix summaries can be used to avoid generating  matrices, that are identical with respect to row and/or column shuffling. This is useful, if one wants to generate many **different** random matrices with the same input parameters. 
 
-Detailed description of input file [>>>](./docs/doc_in.md)
+Detailed description of input file [>>>](./docs/doc_files.md)
 
 ## Parameters
 Detailed description of all parameters [>>>](./docs/doc_param.md)
