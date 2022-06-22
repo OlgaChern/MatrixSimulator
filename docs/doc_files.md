@@ -1,4 +1,13 @@
-## Output files
+# Description of output and input files with examples
+
+
+[Output files](#output)
+
+[Input file (optional)](#input)
+
+
+<a id="output"></a>
+## Output files 
 
 ### <output_file_prefix>.txt
 This file contains generated matrix.
@@ -90,7 +99,7 @@ corresponding column sum, i-1 | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
 * `col_counts_row_sum_1: [3 2 0]` - Entries correspond to the number of columns, which contain 1's in `i-1` rows with row sum = 1. The length of the vector is `u+1`. Here, there are 3 columns, which have only zeros in the rows with row sum = 1 (rows sp9 and sp10) and there are 2 columns, thjat each have 1 in one row with row sum = 1 (in our example, third and fourth columns have 1's in sp10 and sp9, respectivelly). 
 
 
-
+<a id="input"></a>
 ## Input file (optional)
 
 ### <input_file_name>
