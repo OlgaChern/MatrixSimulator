@@ -3,7 +3,7 @@ A simulator to generate 0-1 matrices with various options to control the spread 
 
 It starts with a matrix of ones and then allocates the required number of zeros in the matrix according to the user-defined parameters. One can control the amount of zeros (their % out of all matrix entries) and the spread across the matrix using sampling row/column probabilities and % of rows with row sum equals to one (rows with minimal information) and also the distribution of such ones across columns. The constraints on rows and columns are imposed via minimal number of zeros and ones in each row/column, i.e. constraints on row and column sums.
 
-For the generated matrix the simulator provides also matrix summary in terms of row and column sum frequencies. These summaries can be used to discard matrices, which are identical after row and/or column shuffling.
+For the generated matrix the simulator provides also matrix summary in terms of row and column sum counts. These summaries can be used to discard matrices, which are identical after row and/or column shuffling.
 
 Read more about the steps of matrix simulation [>>>](./docs/doc_workflow.md)
 
