@@ -63,17 +63,21 @@ The simulator accepts the following parameters:
 5. If the % of missing data is not equal to m, the remaining zeros are assinged by sampling a pair row & column, if the entry equals to 1, the entry is assigned wth 0, if the entry is 0, the pair is resampled. This step continues until all zeros are allocated and m equals to the % of zeros in the matrix, or until a zero cannot be allocated without violating constraints on minimal number of 1's in each row and column.
 
 *Assuring minimal number of 1's in each row and column*
+
 Rows and columns, which are at the boundary of constraints (i.e. row sum = r1, column sum = c1) are excluded from sampling and assigning additional zeros.
 
 *Parameter boundaries*
 
 * The % of missing data, m, does not match the % of zeros in simulated matrix.
+
 Parameters on minimal number of zeros and ones in rows and columns, as well as the number of rows with minimal information (i.e. row sum = 1), parameter u, constrain minimal and maximal % of zeros, m, that need to be allocated to satisfy these constraints. Thus, at the boundaries, it can happen that user-defined m is different from the % of zeros in the simulated matrix.
 
-* Sampling probabilities are ignored.
+*Sampling probabilities are ignored.*
+
 TODO 
 
 *Isomorphic matrices*
+
 TODO
 
 ## Application
