@@ -16,9 +16,11 @@ python3 script-gen_0_1_matrix.py -h
 ## Parameters
 The simulator accepts the following parameters:
 
+*Print help:*
 * `-h, --help`            show this help message and exit
 
-* `-o <file_name>`        output file prefix
+*Prefix of the output files:*
+* `-o <file_name>`        output files prefix
 
 *Matrix size:*
 * `-n <num>`              number of rows
@@ -28,8 +30,8 @@ The simulator accepts the following parameters:
 * `-m <num>`              % of zeros to be allocated
 
 *Rows with minimal info (i.e. row sum = 1):*
-* `-u <num>`              % of rows with sum of elements = 1
-* `-up <num> <num> <num>` vector of length 3, defines probabilities for 3 column categories to contain 1's in rows, which sum up to 1
+* `-u <num>`              % of rows with row sum = 1
+* `-up <num> <num> <num>` vector of length 3, defines probabilities for 3 column categories to contain 1's in rows with row sum = 1
 
 *Constraints on rows:*
 * `-r0 <num>`             minimum number of 0's in a row
@@ -57,7 +59,7 @@ The simulator accepts the following parameters:
 
 **Generating matrix**
 1. The simulator starts with a nxk matrix of 1's.
-2. If u>0, then in u rows all entries are assigned with 0's. Then for each row one column is sampled according to up sampling probabilities and the corresponding entry is assigned with 1.
+2. If u>0, then in u rows all entries are assigned with 0's. Then for each row one column is sampled according to up sampling proba:wqbilities and the corresponding entry is assigned with 1.
 3. If the % of missing data is not equal to m, then next row constraint on minimal number of zeros, r0, will be assured. The simulator goes through each of n-u rows, samples r0 columns with sampling probabilities cp and assigns coresponding entries to zeros.
 4. If the % of missing data is not equal to m, then next column constraint on minimal number of zeros, c0, will be assured. The simulator goes through each column, computes the number x of 0 in the column and if x < c0, samples c0-x rows with sampling probabilities rp and assigns coresponding entries to zeros.
 5. If the % of missing data is not equal to m, the remaining zeros are assinged by sampling a pair row & column, if the entry equals to 1, the entry is assigned wth 0, if the entry is 0, the pair is resampled. This step continues until all zeros are allocated and m equals to the % of zeros in the matrix, or until a zero cannot be allocated without violating constraints on minimal number of 1's in each row and column.
