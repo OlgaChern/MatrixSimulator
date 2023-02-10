@@ -41,5 +41,4 @@ The simulator was used in Phylogenomics to simulate presence-absence species per
 
 ## Citation
 If you use this simulator, please cite the following article:
-bioRxiv preprint (https://doi.org/10.1101/2023.01.19.524678)
-* **Olga Chernomor, Christiane Elgert, Arnd von Haeseler** (2023) "Identifying equally scoring trees in phylogenomics with incomplete data using Gentrius"
+* **Olga Chernomor, Christiane Elgert, Arnd von Haeseler** (2023) "Identifying equally scoring trees in phylogenomics with incomplete data using Gentrius", bioRxiv (preprint), https://doi.org/10.1101/2023.01.19.524678
